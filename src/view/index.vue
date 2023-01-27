@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ScreenAdapter from '../components/ScreenAdapter.vue';
+import { RuralSocialInfrastructure } from '../components/charts'
 </script>
 
 <template>
@@ -23,13 +24,15 @@ import ScreenAdapter from '../components/ScreenAdapter.vue';
           </div>
           <div class="flex-cell flex-cell-c">
             <div class="chart-wrapper">
-              <h3 class="chart-title"></h3>
-              <div class="chart-div"></div>
+              <h3 class="chart-title">test</h3>
+              <div class="chart-div">
+                <RuralSocialInfrastructure></RuralSocialInfrastructure>
+              </div>
             </div>
           </div>
           <div class="flex-cell flex-cell-r">
             <div class="chart-wrapper">
-              <h3 class="chart-title"></h3>
+              <h3 class="chart-title">test434</h3>
               <div class="chart-div chart-done">
                 <div class="chart-loader">
                   <div class="loader"></div>
