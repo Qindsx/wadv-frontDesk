@@ -10,7 +10,7 @@ import {
   GridComponent,
 } from 'echarts/components';
 import VChart, { THEME_KEY } from 'vue-echarts';
-import { ref, provide } from 'vue';
+import { ref } from 'vue';
 
 use([
   GridComponent,

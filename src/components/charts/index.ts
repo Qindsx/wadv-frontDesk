@@ -1,3 +1,3 @@
 import RuralSocialInfrastructure from './RuralSocialInfrastructure.vue';
-
-export { RuralSocialInfrastructure };
+import TreeMapCharts from './TreeMapCharts.vue';
+export { RuralSocialInfrastructure, TreeMapCharts };

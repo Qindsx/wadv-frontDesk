@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import BaseTmplate from './view/index.vue'
+import BaseTmplate from './view/index.vue';
 </script>
 
 <template>
-  <BaseTmplate/>
+  <BaseTmplate></BaseTmplate>
 </template>
 
 <style scoped>
