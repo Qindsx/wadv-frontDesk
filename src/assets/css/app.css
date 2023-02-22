@@ -57,8 +57,8 @@ html, body {
 	left:0;
 	right:0;
 	border-style:solid;
-	border-width:26px 27px 27px;
-	border-image:url("../img/chart-wrapper.png") 26 27 27 fill / 1 / 0 repeat;
+	border-width:18px 17px ;
+	border-image:url("../img/chart-wrapper.png") 18 17 fill / 1 / 0 repeat;
 }
 
 /* media query */

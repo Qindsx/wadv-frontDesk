@@ -13,6 +13,16 @@ const routes = [
     ],
   },
   {
+    name: 'AgriculturalProduction',
+    path: '/agriculturalProduction',
+    component: () => import('../view/AgriculturalProduction.vue'),
+  },
+  {
+    name: 'InvestmentOutput',
+    path: '/investmentOutput',
+    component: () => import('../view/InvestmentOutput.vue'),
+  },
+  {
     name: 'root',
     path: '/',
     redirect: '/home',

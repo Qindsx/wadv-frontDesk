@@ -4,6 +4,7 @@ import ScreenAdapter from '../components/ScreenAdapter.vue';
 
 <template>
   <ScreenAdapter>
+    
     <!-- 艾师傅交换空间 -->
     <RouterView></RouterView>
   </ScreenAdapter>

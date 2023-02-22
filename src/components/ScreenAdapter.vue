@@ -34,12 +34,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="body screen-flex" :style="style">
+  <div class="body screen-flex relative" :style="style">
+
     <slot></slot>
   </div>
 </template>
 <style scoped>
-
 .screen-flex {
   background: #09152a;
   transform-origin: 0 0;

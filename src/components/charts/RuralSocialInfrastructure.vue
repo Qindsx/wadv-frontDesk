@@ -10,7 +10,7 @@ import {
   GridComponent,
 } from 'echarts/components';
 import VChart, { THEME_KEY } from 'vue-echarts';
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 
 use([
   GridComponent,
@@ -21,7 +21,19 @@ use([
   LegendComponent,
 ]);
 
-// provide(THEME_KEY, 'dark');
+provide(THEME_KEY, 'dark');
+
+const props = defineProps({
+  years: Array,
+  villagesBroad: Array,
+  villagesPropBroad: Array,
+  villagesPropTv: Array,
+  villagesPropWater: Array,
+  villagesTv: Array,
+  villagesWater: Array,
+});
+
+console.log(props);
 
 const chartData = [
   ['product', '2019年', '2020年'],
@@ -35,44 +47,76 @@ const option = ref({
   // //   text: 'Traffic Sources',
   // //   left: 'center',
   // // },
-  // // tooltip: {
-  // //   trigger: 'item',
-  // //   formatter: '{a} <br/>{b} : {c} ({d}%)',
-  // // },
-  legend: {
+  tooltip: {
+    trigger: 'item',
+    // formatter: `{a} <br/>{b} : {c}
+    //  (占全部委员会占比 80%)`,
   },
-  tooltip: {},
+  legend: {
+    // formatter: 'Legend {name} asd'
+  },
   xAxis: {
     type: 'category',
-    data: ['自来水受益村数(个)', '通有线电视村数(个)', '通宽带村数(个)'],
+    data: props.years,
   },
-  yAxis: {},
+
+  backgroundColor: 'rgba(0,0,0,0)',
+  yAxis: {
+
+    boundaryGap: false,
+  },
   // Declare several bar series, each will be mapped
   // to a column of dataset.source by default.
   series: [
-    { 
-      name:'2019年',
+    {
+      name: '自来水受益村数(个)',
       type: 'bar',
-      radius: '55%',
-      center: ['50%', '60%'],
-      data: [1888, 1889, 1889],
+      barMaxWidth:"10%",
+      data: props.villagesWater,
+      itemStyle:{
+        borderRadius:10
+      },
+      label: {
+        formatter: `{c}/n占全部委员会占比 ${props.villagesPropWater}%'`,
+      },
     },
     {
-      name:'2020年',
+      name: '通有线电视村数(个)',
       type: 'bar',
-      radius: '55%',
-      center: ['50%', '60%'],
-      data: [1908, 1909, 1909],
+      barMaxWidth: "10%",
+      data: props.villagesTv,
+      itemStyle: {
+        borderRadius: 10
+      },
+      label: {
+        formatter: `{c}/n占全部委员会占比 ${props.villagesPropTv}%`,
+      },
+    },
+    {
+      name: '通宽带村数(个)',
+      type: 'bar',
+      barMaxWidth: "10%",
+
+      itemStyle:{
+        borderRadius:10
+      },
+      data: props.villagesBroad,
+      label: {
+        formatter: `{c}/n占全部委员会占比 ${props.villagesPropBroad}%`,
+      },
     },
   ],
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true,
+  },
 });
 </script>
 
 <template>
-  <div><v-chart class="chart" :option="option" /></div>
+  <div class="h-full"><v-chart class="chart" :option="option" /></div>
+
 </template>
-<style scoped>
-.chart {
-  height: 400px;
-}
-</style>
+<style scoped></style>

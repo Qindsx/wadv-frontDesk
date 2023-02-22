@@ -1,3 +1,18 @@
 import RuralSocialInfrastructure from './RuralSocialInfrastructure.vue';
 import TreeMapCharts from './TreeMapCharts.vue';
-export { RuralSocialInfrastructure, TreeMapCharts };
+import OutputExponentChart from './OutputExponentChart.vue';
+import OutputCompositionChart from './OutputCompositionChart.vue';
+import OutputCompositionPieChart from './OutputCompositionPieChart.vue';
+import EmploymentTrendsChart from './EmploymentTrendsChart.vue';
+import GrossAgriculturalOutputChart from './GrossAgriculturalOutputChart.vue';
+import CenterMapChart from './CenterMapChart.vue';
+export {
+  RuralSocialInfrastructure,
+  GrossAgriculturalOutputChart,
+  TreeMapCharts,
+  OutputExponentChart,
+  OutputCompositionChart,
+  OutputCompositionPieChart,
+  EmploymentTrendsChart,
+  CenterMapChart,
+};
