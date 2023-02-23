@@ -2,11 +2,8 @@ import { Request } from './../utils/request';
 const axios = new Request({});
 
 import {
-  RuralInfrastructure1Type,
   RuralInfrastructure1Datum,
-  GrossIndicesgross3Type,
   GrossIndicesgross3Datum,
-  GrossOutputCompoosition4Type,
   GrossOutputCompoosition4Datum,
 } from '../types/RuralandAgriculturalBasicInformation';
 

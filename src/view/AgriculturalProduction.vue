@@ -22,6 +22,9 @@ const router = useRouter()
         农产品产量
       </div>
     </div>
+    <header id="header" class="">
+      <h3 class="header-title">大屏数据可视化模板</h3>
+    </header>
   </div>
 </template>
 <style scoped>
