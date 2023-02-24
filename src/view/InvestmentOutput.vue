@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { CategoryOutputValue } from '../components/InvestmentOutput';
+import {
+  CategoryOutputValue,
+  AgriculturalProduction,
+} from '../components/InvestmentOutput';
 const router = useRouter();
 </script>
 
 <template>
   <div>
-    <div class="text-lg z-10 text-center absolute flex top-6 left-2/3">
-      <div class="button-bg w-32" @click="() => router.push('/home')">首页</div>
+    <div
+      class="text-lg z-10 text-center absolute flex top-6"
+      style="left: 14.44444%"
+    >
       <div
         class="button-bg-active w-32"
         @click="() => router.push('/investmentOutput')"
@@ -20,6 +25,7 @@ const router = useRouter();
       >
         农产品产量
       </div>
+      <div class="button-bg w-32" @click="() => router.push('/home')">首页</div>
     </div>
     <header id="header" class="">
       <h3 class="header-title">大屏数据可视化模板</h3>
@@ -30,9 +36,9 @@ const router = useRouter();
       >
         <CategoryOutputValue></CategoryOutputValue>
       </div>
-      <div
-        class="chart-div col-start-7 col-span-4 row-start-1 row-span-2 flex flex-col"
-      ></div>
+      <div class="col-start-7 col-span-4 row-start-1 row-span-2 flex flex-col">
+        <AgriculturalProduction></AgriculturalProduction>
+      </div>
       <div
         class="chart-div col-start-1 col-span-5 row-start-3 row-span-1 flex flex-col"
       ></div>

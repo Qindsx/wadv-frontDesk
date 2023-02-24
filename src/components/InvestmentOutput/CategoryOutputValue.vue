@@ -9,7 +9,15 @@ import {
   GridComponent,
 } from 'echarts/components';
 import VChart, { THEME_KEY } from 'vue-echarts';
-import { onMounted, Ref, ref, provide,nextTick } from 'vue';
+import {
+  onMounted,
+  Ref,
+  ref,
+  provide,
+  nextTick,
+  reactive,
+  ReactiveEffect,
+} from 'vue';
 import * as echarts from 'echarts';
 import { ECBasicOption } from 'echarts/types/dist/shared';
 
@@ -33,8 +41,14 @@ use([
 provide(THEME_KEY, 'dark');
 
 const years: Ref<string[]> = ref([]);
-const categoryValues: Ref<CategoryValueType[]> = ref([]);
-const farmingcategoryValues: Ref<FarmingCategoryValueType[]> = ref([]);
+const categoryOutputValueInfo2019: Ref<CategoryOutputValueDatum | any> = ref(
+  {}
+);
+const categoryOutputValueInfo2020: Ref<CategoryOutputValueDatum | any> = ref(
+  {}
+);
+// const categoryValues: Ref<CategoryValueType[]> = ref([]);
+// const farmingcategoryValues: Ref<FarmingCategoryValueType[]> = ref([]);
 
 const option1: Ref<ECBasicOption> = ref({});
 const CategoryValuePieRef: Ref<echarts.ECharts | null> = ref(null);
@@ -55,8 +69,6 @@ const farmingCategory: Ref<any> = ref({
   vagetable: '蔬菜及菌类',
   wildPlants: '野生植物',
 });
-
-const categoryOutputValueInfo: Ref<CategoryOutputValueDatum[]> = ref([]);
 
 onMounted(async () => {
   const res = await categoryOutputValueByYears({ year: ['2019', '2020'] });
@@ -82,11 +94,9 @@ onMounted(async () => {
     // farmingcategoryValues.value[i].tuberCrops = item.tuberCrops;
     // farmingcategoryValues.value[i].vagetable = item.vagetable;
     // farmingcategoryValues.value[i].wildPlants = item.wildPlants;
-    
   });
-  await nextTick()
-  categoryOutputValueInfo.value = res.data
-  console.log(categoryOutputValueInfo.value);
+  categoryOutputValueInfo2019.value = res.data[0];
+  categoryOutputValueInfo2020.value = res.data[1];
   option1.value = {
     legend: {
       top: 'top',
@@ -130,6 +140,14 @@ onMounted(async () => {
   console.log(res.data[1]);
 });
 
+const getGrowthRate = (a: number, b: number): string => {
+  if (a && b) {
+    return (((b - a) / a) * 100).toFixed(2) + '%';
+  } else {
+    return '无数据';
+  }
+};
+
 window.addEventListener('resize', () => {
   CategoryValuePieRef.value?.resize();
 });
@@ -140,37 +158,38 @@ window.addEventListener('resize', () => {
     <div class="col-span-2 h-full">
       <v-chart ref="CategoryValuePieRef" class="chart" :option="option1" />
     </div>
-    <div class="col-span-1 overflow-y-auto">
+    <div class="col-span-1">
       <!-- <v-chart ref="CategoryValuePieRef" class="chart" :option="option1" /> -->
       <!-- 表头 -->
-      <div class="flex text-center text-zinc-400">
+      <div class="flex h-7 text-center text-zinc-400 font-semibold">
         <div class="flex-1">名称</div>
         <div class="flex-1">2019年</div>
         <div class="flex-1">2020年</div>
         <div class="flex-1">增长率</div>
       </div>
-      <div class="h-full ">
+      <div class="h-5/6 scrollbar-width_hidden overflow-y-auto">
         <div
-          class="h-12 flex text-center py-2"
-          v-for="(value, key) in farmingCategory"
+          class="h-12 flex text-center py-2 text-base font-normal"
+          v-for="(value, key, index) in farmingCategory"
           :key="key"
+          :class="Number(index) % 2 == 0 ? ' line-bg-0' : ''"
         >
           <div class="flex-1 self-center">{{ value }}</div>
           <div class="flex-1 self-center">
-            {{ categoryOutputValueInfo[0][key] || '0' }}
+            {{ categoryOutputValueInfo2019[key] || '0' }}
           </div>
           <div class="flex-1 self-center">
-            {{ categoryOutputValueInfo[1][key] || '0' }}
+            {{ categoryOutputValueInfo2020[key] || '0' }}
           </div>
           <div class="flex-1 flex self-center justify-evenly">
             <img
-              :src="`../../assets/img/${
-                categoryOutputValueInfo[1][key] -
-                  categoryOutputValueInfo[0][key] >
+              :src="`/src/assets/img/${
+                categoryOutputValueInfo2020[key] -
+                  categoryOutputValueInfo2019[key] >
                 0
                   ? 'up'
-                  : categoryOutputValueInfo[1][key] -
-                      categoryOutputValueInfo[0][key] ==
+                  : categoryOutputValueInfo2020[key] -
+                      categoryOutputValueInfo2019[key] ==
                     0
                   ? 'notChange'
                   : 'down'
@@ -179,11 +198,25 @@ window.addEventListener('resize', () => {
               width="25"
               height="25"
             />
-            <p class="self-center">3.5%</p>
+            <p class="self-center">
+              {{
+                getGrowthRate(
+                  categoryOutputValueInfo2019[key],
+                  categoryOutputValueInfo2020[key]
+                )
+              }}
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped>
+.line-bg-0 {
+  background-color: rgb(19, 41, 76);
+}
+.line-bg-1 {
+  background-color: rgba(129, 140, 248, 0.6);
+}
+</style>

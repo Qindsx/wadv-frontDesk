@@ -1,8 +1,30 @@
-
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+  .scrollbar-width::-webkit-scrollbar {
+    @apply w-2;
+  }
+  .scrollbar-width_hidden::-webkit-scrollbar {
+    @apply w-0;
+  }
+  .scrollbar-track::-webkit-scrollbar-track {
+    @apply rounded-lg bg-gray-300;
+  }
+  .scrollbar-thumb::-webkit-slider-thumb {
+    @apply rounded-lg bg-gray-500;
+  }
+  .scrollbar-thumb_hover::-webkit-scrollbar-track:hover {
+    @apply rounded-lg bg-stone-700;
+  }
+  .scrollbar-thumb_active::-webkit-scrollbar-track:active {
+    @apply rounded-lg bg-gray-700;
+  }
+}
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -34,7 +56,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 h1 {
@@ -65,12 +87,12 @@ button:focus-visible {
   padding: 2em;
 }
 
-#app {
-  /* max-width: 1280px;
+/* #app { */
+/* max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center; */
-}
+/* } */
 
 @media (prefers-color-scheme: light) {
   :root {

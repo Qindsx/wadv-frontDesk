@@ -1,3 +1,3 @@
 import CategoryOutputValue from './CategoryOutputValue.vue';
-
-export { CategoryOutputValue };
+import AgriculturalProduction from './AgriculturalProduction.vue';
+export { CategoryOutputValue, AgriculturalProduction };

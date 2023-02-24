@@ -7,6 +7,7 @@ import EmploymentTrendsChart from './EmploymentTrendsChart.vue';
 import GrossAgriculturalOutputChart from './GrossAgriculturalOutputChart.vue';
 import CenterMapChart from './CenterMapChart.vue';
 import CategoryValuePieChart from './CategoryValuePieChart.vue';
+import AgriculturalProductionBarchart from '../charts/AgriculturalProductionBarchart.vue';
 export {
   RuralSocialInfrastructure,
   GrossAgriculturalOutputChart,
@@ -17,4 +18,5 @@ export {
   EmploymentTrendsChart,
   CenterMapChart,
   CategoryValuePieChart,
+  AgriculturalProductionBarchart,
 };

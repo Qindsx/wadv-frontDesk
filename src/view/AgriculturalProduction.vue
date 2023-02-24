@@ -1,27 +1,25 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-const router = useRouter()
+const router = useRouter();
 </script>
 
 <template>
-  <div>
-    <div class="text-lg z-10 text-center absolute flex top-6 left-2/3">
-      <div class="button-bg w-32" @click="() => router.push('/home')">
-        首页
-      </div>
-      <div
-        class="button-bg w-32"
-        @click="() => router.push('/investmentOutput')"
-      >
-        投入与产量
-      </div>
-      <div
-        class="button-bg-active w-32"
-        @click="() => router.push('/agriculturalProduction')"
-      >
-        农产品产量
-      </div>
+  <div
+    class="text-lg z-10 text-center absolute flex top-6"
+    style="left: 14.44444%"
+  >
+    <div class="button-bg w-32" @click="() => router.push('/investmentOutput')">
+      投入与产量
     </div>
+    <div
+      class="button-bg-active w-32"
+      @click="() => router.push('/agriculturalProduction')"
+    >
+      农产品产量
+    </div>
+    <div class="button-bg w-32" @click="() => router.push('/home')">首页</div>
+  </div>
+  <div>
     <header id="header" class="">
       <h3 class="header-title">大屏数据可视化模板</h3>
     </header>

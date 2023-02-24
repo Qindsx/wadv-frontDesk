@@ -77,7 +77,7 @@ window.addEventListener('resize', () => {
 </script>
 
 <template>
-  <div class="h-full opacity-80">
+  <div class="h-full">
     <v-chart ref="EmploymentTrendsRef" class="chart" :option="option" />
   </div>
 </template>
