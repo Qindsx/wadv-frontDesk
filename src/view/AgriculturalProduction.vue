@@ -1,5 +1,21 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
+import {
+  ForestryProduction,
+  SownOutputPerHectare,
+} from '../components/AgriculturalProduction';
+import { otherProductionSituationByYears } from '../api/agriculturalProduction';
+import {
+  TeaFruitProductionType,
+  FisheryProductionType,
+  ProductionOfOtherProductsType,
+} from '../types/AgriculturalProductionController';
+import { onMounted } from 'vue';
+
+onMounted(async () => {
+  const res = await otherProductionSituationByYears({ year: ['2019', '2020'] });
+  console.log(res);
+});
 const router = useRouter();
 </script>
 
@@ -23,6 +39,23 @@ const router = useRouter();
     <header id="header" class="">
       <h3 class="header-title">大屏数据可视化模板</h3>
     </header>
+    <div id="container" class="grid grid-cols-10 grid-rows-3 gap-2 px-1">
+      <div
+        class="chart-div col-span-3 col-start-1 row-span-2 row-start-1"
+      ></div>
+      <div
+        class="chart-div col-span-3 col-start-4 row-span-2 row-start-1"
+      ></div>
+      <div class="chart-div col-span-4 col-start-7 row-span-2 row-start-1">
+        <SownOutputPerHectare></SownOutputPerHectare>
+      </div>
+      <div class="chart-div col-span-5 col-start-1 row-span-1 row-start-3">
+        <ForestryProduction></ForestryProduction>
+      </div>
+      <div
+        class="chart-div col-span-5 col-start-6 row-span-1 row-start-3"
+      ></div>
+    </div>
   </div>
 </template>
 <style scoped>

@@ -7,13 +7,23 @@ import {
   TitleComponent,
   TooltipComponent,
   LegendComponent,
+  TimelineComponent,
   GridComponent,
 } from 'echarts/components';
 import VChart, { THEME_KEY } from 'vue-echarts';
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 import { SownAreaofFarmCropsData } from '../charts/data/SownAreaofFarmCrops';
 
-use([CanvasRenderer, TreemapChart, TitleComponent, TooltipComponent]);
+provide(THEME_KEY, "dark");
+
+use([
+  CanvasRenderer,
+  LegendComponent,
+  TimelineComponent,
+  TreemapChart,
+  TitleComponent,
+  TooltipComponent,
+]);
 
 const getLevelOption = () => {
   return [
