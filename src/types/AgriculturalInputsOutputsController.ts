@@ -1,13 +1,21 @@
-export interface RroductionConditionsAndInputsDatum {
-  agriculturalDieselOil: number;
-  combine: number;
-  combinePower: number;
-  compoundFertilizer: number;
-  comsumptionPesticide: number;
-  dieselEngines: number;
+export interface AgriculturalInvestmentType {
   effectiveIrrigationArea: number;
   electricityRuralArea: number;
+  pumpedIrrigationArea: number;
   floodDroughtArea: number;
+  nitrogenousFertilizer: number;
+  phosphateFertilizer: number;
+  potashFertilizer: number;
+  mulchFilm: number;
+  mulchFilmArea: number;
+  comsumptionPesticide: number;
+  agriculturalDieselOil: number;
+  compoundFertilizer: number;
+}
+export interface AgricultureMechanizationType {
+  combine: number;
+  combinePower: number;
+  dieselEngines: number;
   gasolineEngines: number;
   largeMachinery: number;
   largePower: number;
@@ -16,13 +24,12 @@ export interface RroductionConditionsAndInputsDatum {
   miniPowers: number;
   miniTractors: number;
   motorizedThresher: number;
-  mulchFilm: number;
-  mulchFilmArea: number;
-  nitrogenousFertilizer: number;
-  phosphateFertilizer: number;
-  potashFertilizer: number;
-  pumpedIrrigationArea: number;
   pumps: number;
+}
+
+export interface RroductionConditionsAndInputsDatum
+  extends AgricultureMechanizationType,
+    AgriculturalInvestmentType {
   year: string;
 }
 

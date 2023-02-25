@@ -3,7 +3,86 @@ import { useRouter } from 'vue-router';
 import {
   CategoryOutputValue,
   AgriculturalProduction,
+  AgriculturalInvestment,
+  AgricultureMechanization,
 } from '../components/InvestmentOutput';
+import { productionConditionsAndInputsByYears } from '../api/investmentOutput';
+import {
+  AgriculturalInvestmentType,
+  AgricultureMechanizationType,
+} from '../types/AgriculturalInputsOutputsController';
+import { onMounted, Ref, ref } from 'vue';
+
+const agriculturalInvestmentData: Ref<AgriculturalInvestmentType[]> = ref([]);
+const agricultureMechanizationData: Ref<AgricultureMechanizationType[]> = ref(
+  []
+);
+const years: Ref<string[]> = ref([]);
+
+onMounted(async () => {
+  const res = await productionConditionsAndInputsByYears({
+    year: ['2019', '2020'],
+  });
+  res.data.forEach((item) => {
+    let {
+      effectiveIrrigationArea,
+      electricityRuralArea,
+      pumpedIrrigationArea,
+      floodDroughtArea,
+      nitrogenousFertilizer,
+      phosphateFertilizer,
+      potashFertilizer,
+      mulchFilm,
+      mulchFilmArea,
+      comsumptionPesticide,
+      agriculturalDieselOil,
+      compoundFertilizer,
+
+      combine,
+      combinePower,
+      dieselEngines,
+      gasolineEngines,
+      largeMachinery,
+      largePower,
+      largeTractors,
+      miniMachinery,
+      miniPowers,
+      miniTractors,
+      motorizedThresher,
+      pumps,
+    } = item;
+    agriculturalInvestmentData.value.push({
+      effectiveIrrigationArea,
+      electricityRuralArea,
+      pumpedIrrigationArea,
+      floodDroughtArea,
+      nitrogenousFertilizer,
+      phosphateFertilizer,
+      potashFertilizer,
+      mulchFilm,
+      mulchFilmArea,
+      comsumptionPesticide,
+      agriculturalDieselOil,
+      compoundFertilizer,
+    });
+    agricultureMechanizationData.value.push({
+      combine,
+      combinePower,
+      dieselEngines,
+      gasolineEngines,
+      largeMachinery,
+      largePower,
+      largeTractors,
+      miniMachinery,
+      miniPowers,
+      miniTractors,
+      motorizedThresher,
+      pumps,
+    });
+    years.value.push(item.year);
+  });
+  console.log(res.data);
+});
 const router = useRouter();
 </script>
 
@@ -41,10 +120,20 @@ const router = useRouter();
       </div>
       <div
         class="chart-div col-start-1 col-span-5 row-start-3 row-span-1 flex flex-col"
-      ></div>
+      >
+        <AgriculturalInvestment
+          :years="years"
+          :agriculturalInvestmentData="agriculturalInvestmentData"
+        ></AgriculturalInvestment>
+      </div>
       <div
         class="chart-div col-start-6 col-span-5 row-start-3 row-span-1 flex flex-col"
-      ></div>
+      >
+        <AgricultureMechanization
+          :agricultureMechanizationData="agricultureMechanizationData"
+          :years="years"
+        ></AgricultureMechanization>
+      </div>
     </div>
   </div>
 </template>
