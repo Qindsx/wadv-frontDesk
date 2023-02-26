@@ -4,7 +4,7 @@ const axios = new Request({});
 import {
   ProductionOfOtherProductsType,
   ForestryProductionType,
-  SownOutputPerHectareType,
+  TreeSownOutputPerHectareType,
 } from '../types/AgriculturalProductionController';
 
 interface ResType {
@@ -18,7 +18,7 @@ interface cropProductionResType extends ResType {
 
 // 农作物生产情况(播种面积、单位产量、产量)
 export const cropProductionByYears = (data: cropProductionResType) => {
-  return axios.post<SownOutputPerHectareType>(
+  return axios.post<TreeSownOutputPerHectareType>(
     '/agriculturalProduction/cropProductionByYears',
     data
   );

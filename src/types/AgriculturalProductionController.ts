@@ -1,4 +1,17 @@
 // 7
+export interface TreeSownOutputPerHectareDataType {
+  agriculturalProductName: string;
+  children?: any[];
+  id: string;
+  name: string;
+  parentName: string;
+  value: number;
+}
+export interface TreeSownOutputPerHectareType {
+  data: TreeSownOutputPerHectareDataType[];
+  year: string;
+}
+
 export interface SownOutputPerHectareType {
   autumnGrainCrops: number;
   corn: number;
