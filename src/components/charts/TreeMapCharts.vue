@@ -80,13 +80,13 @@ const formatUtil = echarts.format;
 watch(
   () => props,
   () => {
-    TreeMapRef.value?.showLoading({
-      text: '数据加载中...',
-      color: '#c23531',
-      textColor: '#ffffc2',
-      maskColor: 'rgba(255, 255, 255, 0)',
-      zlevel: 0
-    });
+    // TreeMapRef.value?.showLoading({
+    //   text: '数据加载中...',
+    //   color: '#c23531',
+    //   textColor: '#ffffc2',
+    //   maskColor: 'rgba(255, 255, 255, 0)',
+    //   zlevel: 0
+    // });
     props.data.forEach((item) => {
       item.data = buildTree(
         item.data,
@@ -95,7 +95,7 @@ watch(
         'notParent'
       );
     });
-    TreeMapRef.value?.hideLoading();
+    // TreeMapRef.value?.hideLoading();
     option.value = {
       timeline: {
         title: {

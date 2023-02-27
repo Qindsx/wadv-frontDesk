@@ -8,7 +8,15 @@ import GrossAgriculturalOutputChart from './GrossAgriculturalOutputChart.vue';
 import CenterMapChart from './CenterMapChart.vue';
 import CategoryValuePieChart from './CategoryValuePieChart.vue';
 import AgriculturalProductionBarchart from '../charts/AgriculturalProductionBarchart.vue';
+import ForestryProductionBarChart from './ForestryProductionBarChart.vue';
+import FisheryProductionBarChart from '../charts/FisheryProductionBarChart.vue';
+import FruitProductionAreaBarChart from './FruitProductionAreaBarChart.vue';
+import FruitProductionBarChart from './FruitProductionBarChart.vue';
+import TeaProductionBarChart from './TeaProductionBarChart.vue';
 export {
+  TeaProductionBarChart,
+  FruitProductionBarChart,
+  FruitProductionAreaBarChart,
   RuralSocialInfrastructure,
   GrossAgriculturalOutputChart,
   TreeMapCharts,
@@ -18,5 +26,7 @@ export {
   EmploymentTrendsChart,
   CenterMapChart,
   CategoryValuePieChart,
+  ForestryProductionBarChart,
   AgriculturalProductionBarchart,
+  FisheryProductionBarChart,
 };

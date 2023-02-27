@@ -62,10 +62,10 @@ watch(
         text: '农田水利建设面积',
         left: 'center',
       },
+
       tooltip: {
         trigger: 'item',
-        // formatter: `{a} <br/>{b} : {c}
-        //  (占全部委员会占比 80%)`,
+        formatter: '{a} <br/>{b} : {c} 万千瓦 ({d}%)',
       },
       legend: {
         top: '26',
@@ -95,9 +95,9 @@ watch(
           itemStyle: {
             borderRadius: 10,
           },
-          label: {
-            formatter: `{a} <br/>{b}(千公顷) : {c}`,
-          },
+          // label: {
+          //   formatter: `{a} <br/>{b}(千公顷) : {c}`,
+          // },
         },
         {
           name: '2020',

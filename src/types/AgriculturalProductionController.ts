@@ -68,26 +68,29 @@ export interface ForestryProductionType {
   year: string;
 }
 
-export interface AnimalHusbandryProduction {
-  shrimpsCaught: number;
-  yearendSheep: number;
-  slaughteredCattle: string;
-  honey: number;
-  slaughteredPoultry: string;
-  slaughteredFattenedHogs: string;
-  horses: number;
-  slaughteredSheep: string;
-  yearendHogs: number;
-  milk: number;
+export interface AnimalHusbandryProductionType {
   yearendStockAnimals: number;
+  cowsBreed: number;
+  beefCattle: number;
+  horses: number;
+  donkeys: number;
+  mutes: number;
+  yearendSheep: number;
+  yearendHogs: number;
+  femalHogs: number;
+  slaughteredFattenedHogs: string;
+  slaughteredCattle: string;
+  slaughteredSheep: string;
+  slaughteredPoultry: string;
+  milk: number;
+  honey: number;
+  eggs: number;
 }
 export interface FisheryProductionType {
+  shrimpsCultured: number;
+  shrimpsCaught: number;
   freshCulturedArea: number;
   aquaticProducts: number;
-  cowsBreed: number;
-  donkeys: number;
-  eggs: number;
-  femalHogs: number;
   shrimpsArtificially: number;
   fishCaught: number;
   otherCaught: number;
@@ -97,7 +100,6 @@ export interface FisheryProductionType {
   otherArtificially: number;
   fishCultured: number;
   fishCulturedAll: number;
-  mutes: number;
   otherCultured: number;
   shellfhshArtificially: number;
   paddyCulturedArea: number;
@@ -107,7 +109,6 @@ export interface FisheryProductionType {
 }
 export interface TeaFruitProductionType {
   fruitOutputAll: number;
-  beefCattle: number;
   greenTea: number;
   otherTea: number;
   kiwiFruit: number;
@@ -129,7 +130,7 @@ export interface TeaFruitProductionType {
   yearendOrchardArea: number;
 }
 export interface ProductionOfOtherProductsType
-  extends AnimalHusbandryProduction,
+  extends AnimalHusbandryProductionType,
     FisheryProductionType,
     TeaFruitProductionType {
   years: string;
