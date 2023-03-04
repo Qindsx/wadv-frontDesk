@@ -17,7 +17,9 @@ const slaughteredPoultryData: Ref<number[]> = ref([]);
 const YearRetaData = ref<any>({});
 
 onMounted(async () => {
-  const res = await agriculturalProductionByYears({ year: [] });
+  const res = await agriculturalProductionByYears({
+    year: ['2016', '2017', '2018', '2019', '2020'],
+  });
   res.data.forEach((item) => {
     years.value.push(item.year);
     aquaticProductsData.value.push(item.aquaticProducts);
@@ -65,7 +67,7 @@ const getYearReta = (data: number[]): number => {
   <div class="h-full grid grid-cols-4 grid-rows-3 gap-y-6">
     <div class="col-span-1 col-start-1 row-span-1 row-start-1">
       <p class="text-lg text-gray-200 font-semibold text-center">粮食(吨)</p>
-      <p class="text-sm text-gray-600  text-center">
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.grainsData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -80,7 +82,8 @@ const getYearReta = (data: number[]): number => {
       </p>
     </div>
     <div class="col-span-1 col-start-4 row-span-1 row-start-1">
-      <p class="text-lg text-gray-200 font-semibold text-center">棉 花(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">棉 花(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.cottonData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -91,7 +94,8 @@ const getYearReta = (data: number[]): number => {
       </AgriculturalProductionBarchart>
     </div>
     <div class="col-span-1 col-start-1 row-span-1 row-start-2">
-      <p class="text-lg text-gray-200 font-semibold text-center">油 料(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">油 料(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.oilBearingData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -102,7 +106,8 @@ const getYearReta = (data: number[]): number => {
       </AgriculturalProductionBarchart>
     </div>
     <div class="col-span-1 col-start-2 row-span-1 row-start-2">
-      <p class="text-lg text-gray-200 font-semibold text-center">蔬 菜(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">蔬 菜(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.vagetablesData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -113,7 +118,8 @@ const getYearReta = (data: number[]): number => {
       </AgriculturalProductionBarchart>
     </div>
     <div class="col-span-1 col-start-3 row-span-1 row-start-2">
-      <p class="text-lg text-gray-200 font-semibold text-center">水 果(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">水 果(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.fruitData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -126,7 +132,8 @@ const getYearReta = (data: number[]): number => {
     <div class="col-span-1 col-start-4 row-span-1 row-start-2">
       <p class="text-lg text-gray-200 font-semibold text-center">
         生猪出栏(万头)
-      </p><p class="text-sm text-gray-600  text-center">
+      </p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.slaughteredHogsData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -139,7 +146,8 @@ const getYearReta = (data: number[]): number => {
     <div class="col-span-1 col-start-1 row-span-1 row-start-3">
       <p class="text-lg text-gray-200 font-semibold text-center">
         家禽出笼(万只)
-      </p><p class="text-sm text-gray-600  text-center">
+      </p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.slaughteredPoultryData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -152,7 +160,8 @@ const getYearReta = (data: number[]): number => {
     <div class="col-span-1 col-start-2 row-span-1 row-start-3">
       <p class="text-lg text-gray-200 font-semibold text-center">
         禽蛋产量(吨)
-      </p><p class="text-sm text-gray-600  text-center">
+      </p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.eggsData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -163,7 +172,8 @@ const getYearReta = (data: number[]): number => {
       </AgriculturalProductionBarchart>
     </div>
     <div class="col-span-1 col-start-3 row-span-1 row-start-3">
-      <p class="text-lg text-gray-200 font-semibold text-center">牛 奶(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">牛 奶(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.milkData }}%
       </p>
       <AgriculturalProductionBarchart
@@ -174,7 +184,8 @@ const getYearReta = (data: number[]): number => {
       </AgriculturalProductionBarchart>
     </div>
     <div class="col-span-1 col-start-4 row-span-1 row-start-3">
-      <p class="text-lg text-gray-200 font-semibold text-center">水产品(吨)</p><p class="text-sm text-gray-600  text-center">
+      <p class="text-lg text-gray-200 font-semibold text-center">水产品(吨)</p>
+      <p class="text-sm text-gray-600 text-center">
         年均增长率{{ YearRetaData.aquaticProductsData }}%
       </p>
       <AgriculturalProductionBarchart

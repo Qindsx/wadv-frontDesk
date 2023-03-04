@@ -74,7 +74,7 @@ onMounted(async () => {
 }
 
 ::v-deep .vs-carousel__arrows {
-  background-color: #F3F4F6;
-  color:#374151
+  background-color: #f3f4f6;
+  color: #374151;
 }
 </style>
