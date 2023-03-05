@@ -26,7 +26,7 @@ onMounted(async () => {
       year: ['2016', '2017', '2018', '2019', '2020'],
     }),
     cropProductionByYears({
-      classify: 'per hectare',
+      classify: 'perHectare',
       year: ['2016', '2017', '2018', '2019', '2020'],
     }),
   ]);
