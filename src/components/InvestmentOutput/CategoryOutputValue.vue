@@ -155,8 +155,9 @@ window.addEventListener('resize', () => {
 
 <template>
   <div class="h-full grid grid-cols-3">
-    <div class="col-span-2 h-full">
-      <v-chart ref="CategoryValuePieRef" class="chart" :option="option1" />
+    <div class="col-span-2 h-full flex flex-col">
+      <p class=" font-medium text-2xl text-gray-200 text-center pb-2">农林牧渔分类总产值</p>
+      <v-chart ref="CategoryValuePieRef" class=" flex-1" :option="option1" />
     </div>
     <div class="col-span-1">
       <!-- <v-chart ref="CategoryValuePieRef" class="chart" :option="option1" /> -->

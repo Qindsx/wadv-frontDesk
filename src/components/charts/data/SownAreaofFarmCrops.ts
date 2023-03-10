@@ -1,3 +1,12 @@
+/**
+ *
+ * @param items 数据
+ * @param idKey 各项数据的id名称
+ * @param parentKey 父节点id名称
+ * @param rootVal 选填 根节点名称，没有则表示有多个根节点
+ * @param sort  选填 排序函数，没有则按递归栈返回的顺序
+ * @returns 返回带有父子关系的树形结构
+ */
 export const buildTree = <
   ID extends string,
   PID extends string,

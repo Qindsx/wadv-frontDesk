@@ -93,21 +93,21 @@ const router = useRouter();
       style="left: 14.44444%"
     >
       <div
-        class="button-bg-active w-32"
-        @click="() => router.push('/investmentOutput')"
-      >
-        投入与产量
-      </div>
-      <div
         class="button-bg w-32"
         @click="() => router.push('/agriculturalProduction')"
       >
         农产品产量
       </div>
+      <div
+        class="button-bg-active w-32"
+        @click="() => router.push('/investmentOutput')"
+      >
+        投入与产量
+      </div>
       <div class="button-bg w-32" @click="() => router.push('/home')">首页</div>
     </div>
     <header id="header" class="">
-      <h3 class="header-title">大屏数据可视化模板</h3>
+      <h3 class="header-title">武汉农业数据可视化大屏</h3>
     </header>
     <div id="container" class="grid grid-cols-10 grid-rows-3 gap-2 px-1">
       <div
