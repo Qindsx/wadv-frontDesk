@@ -65,7 +65,7 @@ const getGrowthRate = (a: number, b: number): string => {
             <p class="text-lg">{{ forestryProduction2020[key] }}</p>
             <div class="flex self-center justify-evenly text-lg">
               <img
-                :src="`/src/assets/img/${
+                :src="`/${
                   forestryProduction2019[key] - forestryProduction2020[key] < 0
                     ? 'up'
                     : forestryProduction2019[key] -

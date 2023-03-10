@@ -184,7 +184,7 @@ window.addEventListener('resize', () => {
           </div>
           <div class="flex-1 flex self-center justify-evenly">
             <img
-              :src="`/src/assets/img/${
+              :src="`/${
                 categoryOutputValueInfo2020[key] -
                   categoryOutputValueInfo2019[key] >
                 0

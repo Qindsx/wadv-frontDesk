@@ -83,7 +83,7 @@ const getGrowthRate = (a: number, b: number): string => {
         </div>
         <div class="flex-1 flex self-center justify-evenly">
           <img
-            :src="`/src/assets/img/${
+            :src="`/${
               AnimalHusbandryData2020[key] - AnimalHusbandryData2019[key] > 0
                 ? 'up'
                 : AnimalHusbandryData2020[key] - AnimalHusbandryData2019[key] ==

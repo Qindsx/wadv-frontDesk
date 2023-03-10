@@ -14,7 +14,8 @@ export class Request {
   instance: AxiosInstance;
   // 基础配置，url和超时时间
   baseConfig: AxiosRequestConfig = {
-    baseURL: `${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_API_URL}`, //本地环境
+    // baseURL: `${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_API_URL}`, //本地环境
+    baseURL: `http://127.0.0.1:6565/api`, //线上环境
     timeout: 60000,
     headers: {
       'Access-Control-Allow-Origin-Type': '*', // 允许跨域
